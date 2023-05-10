@@ -2,7 +2,7 @@ import Experience from "../Experience";
 import Room from "./Room";
 import Environment from "./Environment";
 import Controls from "./Controls";
-import Floor from "./floor";
+import Floor from "./Floor";
 import EventEmitter from "events";
 
 export default class World extends EventEmitter {
