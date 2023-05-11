@@ -11,9 +11,9 @@ html, body {
   color: var(--text-black);
 }
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 
 h1,
 section,
@@ -26,6 +26,28 @@ svg {
 svg {
   fill: var(--color-text);
 }
+
+
+/* tech journeys */
+.novare {
+
+}
+
+.pccw {
+
+}
+
+.manulife {
+
+}
+
+
+.links {
+  height: 50px;
+  width: 50px;
+  margin-right: 15px;
+}
+
 
 :root{
   /* Sun Breathing Variables */
@@ -48,8 +70,8 @@ svg {
  --color-text: var(--color-text-light);
  --color-background: var(--color-background-light);
  --color-brown: var(--color-primary-brown);
- --color-green: var(--color-green-light);
- --color-blue: var(--color-blue-light);
+ --color-green: var(--color-green-kobe);
+ --color-blue: var(--color-blue-kobe);
 }
 
 .dark-theme {
@@ -86,7 +108,7 @@ svg {
   height: 100vh;
   position: fixed;
   opacity: 1;
-  z-index: 99999999999;
+  z-index: 999999;
 }
 
 .preloader-wrapper {
@@ -136,7 +158,7 @@ svg {
 /* HTML CSSesing itself haha tanga */
 
 .page {
-  z-index: 99999;
+  z-index: 999999999; /* page */
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -158,10 +180,12 @@ svg {
   align-items: center;
   position: absolute;
   top: 50%;
-  left: 50%;
+  width: 100%;
+  text-align: center;
   font-weight: 500;
   font-size: 16px;
   transform: translate(-50%, -50);
+  color: var(--color-text);
 }
 
 .arrow-svg-wrapper {
@@ -191,7 +215,7 @@ svg {
   align-items: center;
   top: 48px;
   right: 48px;
-  z-index: 999999999999999999999999999999;
+  z-index: 9999999999999999;
   opacity: 0;
 }
 
@@ -241,7 +265,7 @@ svg {
 /* Section Formatting */
 .section-margin {
   height: 3000px;
-  width: 100%;
+  width: 60%;
 }
 
 .section {
@@ -251,6 +275,7 @@ svg {
   margin: 0;
   background-color: var(--color-background);
   overflow: hidden;
+  z-index: 99999999999999;
 }
 
 .left {
@@ -263,6 +288,12 @@ svg {
   margin-left: auto;
   border-top-left-radius: 700px 700px;
   border-bottom-left-radius: 0px 0px;
+}
+
+.last-section {
+  padding-top: 500px;
+  padding-bottom: 100px;
+  border-bottom-right-radius: 600px 600px !important;
 }
 
 /* Progress Bars */
@@ -447,6 +478,10 @@ svg {
 
 .green-background {
   background-color: var(--color-green);
+}
+
+.asscrollbar {
+  z-index: 9999999999999999999999999999999999999999999999;
 }
 
 /* Media Queries */

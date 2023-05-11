@@ -13,6 +13,7 @@ export default class Controls {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
         this.room = this.experience.World.room.actualRoom;
+
         this.room.children.forEach(child => {
             if(child.type === "RectAreaLight") {
                 if (child.intensity === 3) this.rectLight1 = child;
@@ -22,6 +23,8 @@ export default class Controls {
         });
 
         GSAP.registerPlugin(ScrollTrigger);
+
+        document.querySelector(".page").style.overflow = "visible"; 
 
         this.circleFirst = this.experience.World.floor.circleFirst;
         this.circleSecond = this.experience.World.floor.circleSecond;
@@ -78,8 +81,6 @@ export default class Controls {
         ScrollTrigger.matchMedia({
             // Desktop
             "(min-width: 969px)": () => {
-
-                console.log("fired desktop");
                 this.room.scale.set(0.16, 0.16, 0.16);
                 this.room.position.set(0,0,0);
 
@@ -90,15 +91,20 @@ export default class Controls {
                         start: "top top",
                         end: "bottom",
                         scrub: 0.6,
+                        // markers: true,
                         invalidateOnRefresh: true,
                     }
                 });
 
-                this.firstMoveTimeline.to(this.room.position, {
-                    x: () => {
-                        return this.sizes.width * 0.0014;
+                this.firstMoveTimeline.fromTo(
+                    this.room.position, 
+                    { x: 0, y: 0, z:0 }, 
+                    {
+                        x: () => {
+                            return this.sizes.width * 0.0014;
+                        },
                     }
-                });
+                );
 
                 
                 // Second section -------------------------------------------------------------
@@ -106,7 +112,7 @@ export default class Controls {
                     scrollTrigger: {
                         trigger: ".second-move",
                         start: "top top",
-                        end: "bottom",
+                        end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     }
@@ -115,7 +121,7 @@ export default class Controls {
                         this.room.position, 
                         {
                             x: () => {
-                                return -1.5;
+                                return -1;
                             },
                             z: () => {
                                 return this.sizes.height * 0.0032;
@@ -165,7 +171,7 @@ export default class Controls {
                     scrollTrigger: {
                         trigger: ".third-move",
                         start: "top top",
-                        end: "bottom",
+                        end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     }
@@ -192,8 +198,6 @@ export default class Controls {
 
             // Mobile
             "(max-width: 968px)": () => {
-                console.log("fired mobile");
-
                 this.room.scale.set(0.07, 0.07, 0.07);
                 this.room.position.set(0,0.3,0);
 
@@ -202,7 +206,7 @@ export default class Controls {
                 scrollTrigger: {
                     trigger: ".first-move",
                     start: "top top",
-                    end: "bottom",
+                    end: "bottom bottom",
                     scrub: 0.6,
                     invalidateOnRefresh: true,
                 }
@@ -221,7 +225,7 @@ export default class Controls {
                     scrollTrigger: {
                         trigger: ".second-move",
                         start: "top top",
-                        end: "bottom",
+                        end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     }
@@ -230,7 +234,7 @@ export default class Controls {
                     x: 0.25,
                     y: 0.25,
                     z: 0.25,
-                })                    
+                }, "same")                    
                 .to(this.room.position, 
                     {
                         x: () => {
@@ -275,7 +279,7 @@ export default class Controls {
                     scrollTrigger: {
                         trigger: ".third-move",
                         start: "top top",
-                        end: "bottom",
+                        end: "bottom bottom",
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     }
@@ -327,19 +331,16 @@ export default class Controls {
                                 scrub: 0.6
                             }
                         });
-                    }
-
-                    if (section.classList.contains("left")) {
+                    } else {
                         GSAP.to(section, {
                             borderTopRightRadius: 10,
                             scrollTrigger: {
                                 trigger: section,
                                 start: "top bottom",
                                 end: "top top",
-                                scrub: 0.6
+                                scrub: 0.6,
                             }
                         });
-
                         GSAP.to(section, {
                             borderBottomRightRadius: 700,
                             scrollTrigger: {
