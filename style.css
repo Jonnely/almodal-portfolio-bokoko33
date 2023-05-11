@@ -30,15 +30,15 @@ svg {
 
 /* tech journeys */
 .novare {
-
-}
+  height: 150px;
+} 
 
 .pccw {
-
+  height: 182px;
 }
 
 .manulife {
-
+  height: 234px;
 }
 
 
@@ -481,7 +481,7 @@ svg {
 }
 
 .asscrollbar {
-  z-index: 9999999999999999999999999999999999999999999999;
+  z-index: 9999999999999999999999999999999999999999999999 !important;
 }
 
 /* Media Queries */

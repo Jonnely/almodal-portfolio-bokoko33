@@ -44,7 +44,7 @@ export default class Preloader extends EventEmitter {
             this.timeline.set(".animatedis", {y: 0, yPercent: 100});
             this.timeline.to(".preloader", {
                 opacity: 0,
-                delay: 1,
+                delay: 0.5,
                 onComplete: () => {
                     document
                         .querySelector(".preloader")
@@ -57,15 +57,15 @@ export default class Preloader extends EventEmitter {
                         x: 1.4,
                         y: 1.4,
                         z: 1.4,
-                        ease: "back.out(2.5)",
+                        ease: "back.out(1)",
                         duration: 0.7,
                     }, "same_desktop").to(this.room.rotation, {
                         z: Math.PI * 2,
-                        duration: 0.7,
+                        duration: 0.5,
                     }, "same_desktop").to(this.room.position, {
                         x: -1,
                         ease: "power1.out",
-                        duration: 0.7,
+                        duration: 0.5,
                     });
             } else {
                 this.timeline
