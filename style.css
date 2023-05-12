@@ -697,4 +697,8 @@ svg {
     font-size: 18px;
   }
 
+  .cover-photo {
+    height: 185px;
+  }
+
 }
