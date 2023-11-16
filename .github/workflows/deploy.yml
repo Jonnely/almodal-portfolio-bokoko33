@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - run: npm install
-      - run: npm run build
+      - run: npm install -g vite
+      - run: vite build
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ap-southeast-1
